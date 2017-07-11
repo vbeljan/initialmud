@@ -1,0 +1,12 @@
+{application, imudtcp,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { imudtcp_app, []}},
+  {env, []}
+ ]}.

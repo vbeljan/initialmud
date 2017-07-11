@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<car>
+        <name>AE86 Sprinter Trueno</name>
+        <shortname>86</shortname>
+        <mass>1100</mass>
+        <width>1.63</width>
+        <length>4.2</length>
+        <height>1.34</height>
+        <wdist>55</wdist>
+        <basegrip>0.55</basegrip>
+        <drag>0.38</drag>
+        <engine>
+                <name>4AGE</name>
+                <hp>120</hp>
+                <fixrpm>7000</fixrpm>
+                <torque>176.79866</torque>
+        </engine>
+        <gearbox>
+                <name>86 5-speed</name>
+                <powerloss>0.8</powerloss>
+                <ratio>
+                  <gear1 top=11.1 r=3.587 />
+                  <gear2 top=23.1 r=2.022 />
+                  <gear3 top=33.7 r=1.384 />
+                  <gear4 top=46.6 r=1 />
+                  <gear5 top=54.2 r=0.861 />
+                  <final r=4.30 />
+        </gearbox>
+</car>
