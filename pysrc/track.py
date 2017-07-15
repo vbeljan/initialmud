@@ -5,7 +5,7 @@ class Track:
     def __init__(self, name):
         track = []
 
-        path = "res/tracks/" + name
+        path = "../res/tracks/" + name
         trackfile = open(path, 'r')
         tlines = trackfile.readlines()
 
