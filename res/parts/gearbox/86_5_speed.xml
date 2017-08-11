@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<gearbox>
+  <name>86 5-speed</name>
+  <ratio>
+      <gear1 top='11.1' r='3.587' />
+      <gear2 top='23.1' r='2.022' />
+      <gear3 top='33.7' r='1.384' />
+      <gear4 top='46.6' r='1' />
+      <gear5 top='54.2' r='0.861' />
+      <final r='4.30' />
+
+  </ratio>
+</gearbox>

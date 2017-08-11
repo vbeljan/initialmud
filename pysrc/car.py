@@ -32,15 +32,9 @@ class Car(object):
 
     def initGearbox(self):
         self.geardict = {}
-        print self.cardata.gearbox.ratio
-        glinesplit = str(self.cardata.gearbox.ratio).splitlines()
-        for x in glinesplit:
-            ratiosplit = x.split(" ")
-            top = ratiosplit[0]
-            r = ratiosplit[1]
-            self.geardict[top] = r
-        print 'Geardict:'
-        print self.geardict
+        gbox = et.parse('../res/parts/gearbox/86_5_speed.xml')
+        root = gbox.getroot()
+        self.ratio = root.find('ratio')
 
 ##======================================================================
 ## GETTERS & SETTERS
@@ -74,7 +68,7 @@ class Car(object):
 
         Fdrag = Cdrag * v1  #0.004389 | 729,677402603
         Frr = Crr * v1 #1.3167 | 536.870441356
-        Fdrive = (self.cardata.engine.hp) * 1.30 * 3.1 * self.gear() * self.cardata.gearbox.powerloss / imud.WHEEL
+        Fdrive = (self.cardata.engine.hp) * 1.30 * 3.1 * self.gearselect() * self.cardata.gearbox.powerloss / imud.WHEEL
         print "Fdrive = %.5f" % Fdrive
         print "Distance = %.5f" % s1
         print "Speed = %.5f" % v1
@@ -90,6 +84,9 @@ class Car(object):
         self.speed = v2
         return s1 + imud.TIMEFRAME * v2 #20,386968989 | 40,984867285
 
+##======================================================================
+## DRIVING HELPERS
+##======================================================================
 
     def tractionForce(self):
         nm = self.cardata.engine.hp * 745.7 * imud.TIMEFRAME #177,61215145 idealno
@@ -98,9 +95,9 @@ class Car(object):
         Ft = rnm  / imud.WHEEL
         return float(Ft)
 
-    def gear(self):
+    def gearselect(self):
         #here be dragons
-        if self.speed > self.geardict.keys()[self.gear]:
+        if self.speed > float(self.ratio[self.gear].get('top')):
             self.gear += 1
 
-        return self.geardict.get(self.geardict.keys()[self.gear])
+        return float(self.ratio[self.gear].get('r'))
