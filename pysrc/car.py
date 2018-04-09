@@ -88,6 +88,11 @@ class Car(object):
 ## DRIVING HELPERS
 ##======================================================================
 
+    def nominalRadialSpeed(self, turnAngle, turnRadiusMid):
+
+        Fz = imud.CT * alpha
+        return 1
+
     def tractionForce(self):
         nm = self.cardata.engine.hp * 745.7 * imud.TIMEFRAME #177,61215145 idealno
         #nm = 0.001 * imud.TIMEFRAME * self.hp #

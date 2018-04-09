@@ -1,5 +1,14 @@
 #!/usr/bin/python
 
+######################################################################
+#Track format:
+#W, road width (m) - road width declaration
+#S (straight), length
+#turn:
+#Direction, Radius inner, Angle
+
+######################################################################
+
 class Track:
 
     def __init__(self, name):
