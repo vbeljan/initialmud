@@ -84,14 +84,19 @@ class Car(object):
         self.speed = v2
         return s1 + imud.TIMEFRAME * v2 #20,386968989 | 40,984867285
 
+    def getBrakingPoint(self, distanceOfStraight, turnRadiusMid):
+        pass
+
+
 ##======================================================================
 ## DRIVING HELPERS
 ##======================================================================
 
-    def nominalRadialSpeed(self, turnAngle, turnRadiusMid):
-
-        Fz = imud.CT * alpha
-        return 1
+    def lateralForce(self, turnRadius):
+        delta = math.acos(self.cardata.length / turnRadius)
+        turnAngle = 90 - delta
+        Fz = imud.CT * delta
+        return Fz
 
     def tractionForce(self):
         nm = self.cardata.engine.hp * 745.7 * imud.TIMEFRAME #177,61215145 idealno
