@@ -95,8 +95,13 @@ class Car(object):
     def lateralForce(self, turnRadius):
         delta = math.acos(self.cardata.length / turnRadius)
         turnAngle = 90 - delta
-        Fz = imud.CT * delta
+        Fz = self.cardata.mass * (self.speed**2) * delta
         return Fz
+
+    def maxRadialSpeed(self, turnRadius):
+        delta = math.acos(self.cardata.length / turnRadius)
+        turnAngle = 90 - delta
+        vr = math.sqrt()
 
     def tractionForce(self):
         nm = self.cardata.engine.hp * 745.7 * imud.TIMEFRAME #177,61215145 idealno
